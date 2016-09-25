@@ -26,7 +26,7 @@ export function Game({players, actions}) {
         {players.map((player, i) => <Player player={player} actions={actions} key={i}/>)}
       </div>
       <div style={styles.bottomBar}>
-        <button onClick={actions.startGame}>Start Game</button>
+        <button onClick={actions.startGameRequest}>Start Game</button>
         <button onClick={actions.endTurn}>End Turn</button>
       </div>
     </div>

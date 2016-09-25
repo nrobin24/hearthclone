@@ -29,6 +29,7 @@
   "author": "nrobin",
   "license": "MIT",
   "dependencies": {
+    "json-loader": "0.5.4",
     "object-assign": "4.1.0",
     "radium": "0.18.1",
     "react": "15.3.1",
@@ -39,7 +40,8 @@
     "redux": "3.5.2",
     "redux-devtools": "3.3.1",
     "redux-logger": "2.6.1",
-    "redux-thunk": "2.1.0"
+    "redux-thunk": "2.1.0",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "6.4.0",
