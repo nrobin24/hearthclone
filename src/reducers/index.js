@@ -1,10 +1,8 @@
-import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
-import {routerReducer} from 'react-router-redux';
+import {combineReducers} from 'redux'
+import {game} from './gameReducer'
 
 const rootReducer = combineReducers({
-  fuelSavings,
-  routing: routerReducer
-});
+  game
+})
 
-export default rootReducer;
+export default rootReducer

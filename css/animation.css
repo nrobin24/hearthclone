@@ -1,0 +1,33 @@
+/* Ripple Out */
+@keyframes hvr-ripple-out {
+  100% {
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    opacity: 0;
+  }
+}
+
+.hvr-ripple-out {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  position: relative;
+}
+
+.hvr-ripple-out:before {
+  content: '';
+  position: absolute;
+  border: lime solid 3px;
+  border-radius: 10px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  animation-iteration-count:infinite;
+  animation-duration: 1.5s;
+  animation-name: hvr-ripple-out;
+}

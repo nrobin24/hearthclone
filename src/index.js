@@ -1,22 +1,31 @@
-/* eslint-disable import/default */
+// Set up your application entry point here..require('../css/animation.css');
 
-import React from 'react';
-import {render} from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
-import configureStore from './store/configureStore';
-require('./favicon.ico'); // Tell webpack to load favicon.ico
-import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
-import { syncHistoryWithStore } from 'react-router-redux';
+import ReactDOM from 'react-dom'
+import React from 'react'
+import {Provider} from 'react-redux'
+import {App} from './components/App'
+import configureStore from './store/configureStore'
+// import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 
-const store = configureStore();
+const isProd = true
 
-// Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store);
+const store = configureStore()
 
-render(
-  <Provider store={store}>
-    <Router history={history} routes={routes} />
-  </Provider>, document.getElementById('app')
-);
+// const debugPanel = (
+//   <DebugPanel top right bottom>
+//     <DevTools store={store} monitor={LogMonitor} />
+//   </DebugPanel>
+// )
+
+// let maybeDebugPanel = () => isProd ? null : debugPanel
+
+const targetEl = document.getElementById('app')
+
+ReactDOM.render(
+  <div>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </div>,
+  targetEl
+)
