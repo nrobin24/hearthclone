@@ -3,6 +3,7 @@ import {PLAYER_2_ID} from '../constants/GameParams'
 import {Hand} from './Hand'
 import {Table} from './Table'
 import {Hero} from './Hero'
+import _ from 'lodash'
 // import cashRollImage from '../../assets/images/cash-roll.jpg'
 var cashRollImage = require("file!../../assets/images/cash-roll.jpg");
 
@@ -75,10 +76,10 @@ function ManaCrystal({spent}) {
 
 function ManaBar({total, spent}) {
   const manaCrystals = _.range(total)
-    .map(i => <ManaCrystal spent={i >= total - spent}/>)
+    .map(i => <ManaCrystal spent={i >= total - spent} key={i}/>)
 
   return (
-    <div style={styles.manaBar}>
+    <div style={styles.manaBar} >
       {manaCrystals}
     </div>
   )
@@ -86,17 +87,27 @@ function ManaBar({total, spent}) {
 
 
 export function Player({player, actions}) {
-  const {isTurn, playerId, life, heroName, mana, hand, table, imageUrl} = player
+  const {manaTotal, manaSpent} = player
   return (
     <div style={getStyle(player)}>
       <div style={styles.player.upper}>
-        <Hero name={heroName} life={life} actions={actions} playerId={playerId} isTurn={isTurn} imageUrl={imageUrl}/>
-        <ManaBar total={mana.total} spent={mana.spent} />
-      </div>
-      <div style={styles.player.lower}>
-        <Hand hand={hand} actions={actions}/>
-        <Table table={table} playerId={playerId} actions={actions}/>
+        <ManaBar total={manaTotal} spent={manaSpent} />
       </div>
     </div>
   )
 }
+// export function Player({player, actions}) {
+//   const {isTurn, id, life, heroName, manaTotal, manaSpent, hand, table, imageUrl} = player
+//   return (
+//     <div style={getStyle(player)}>
+//       <div style={styles.player.upper}>
+//         <Hero name={heroName} life={life} actions={actions} playerId={id} isTurn={isTurn} imageUrl={imageUrl}/>
+//         <ManaBar total={manaTotal} spent={manaSpent} />
+//       </div>
+//       <div style={styles.player.lower}>
+//         <Hand hand={hand} actions={actions}/>
+//         <Table table={table} playerId={id} actions={actions}/>
+//       </div>
+//     </div>
+//   )
+// }

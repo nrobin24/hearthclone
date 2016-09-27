@@ -1,5 +1,5 @@
 import React from 'react';
-import {Player} from './player'
+import {Player} from './Player'
 
 const styles = {
   playerContainer: {
@@ -19,11 +19,12 @@ const styles = {
   }
 }
 
-export function Game({players, actions}) {
+export function Game({playerStates, actions}) {
+  console.log('woo game here', playerStates)
   return (
     <div style={styles.game}>
       <div style={styles.playerContainer}>
-        {players.map((player, i) => <Player player={player} actions={actions} key={i}/>)}
+        {playerStates.map((player, i) => <Player player={player} actions={actions} key={i}/>)}
       </div>
       <div style={styles.bottomBar}>
         <button onClick={actions.startGameRequest}>Start Game</button>

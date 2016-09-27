@@ -3,7 +3,6 @@ import {Game} from '../components/Game'
 import {bindActionCreators} from 'redux'
 import {startGameRequest} from '../actions/remote'
 
-console.log('sup', startGameRequest)
 
 const GameActions = {
   startGameRequest
@@ -24,7 +23,8 @@ function mapStateToProps({game}) {
   //   }
   // })
   // return {players}
-  return {players: []}
+  console.log('mapStateToProps game', game)
+  return game
 }
 
 // Which action creators does it want to receive by props?

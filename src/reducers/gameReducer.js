@@ -1,11 +1,14 @@
-import {START_GAME, CLICK_CARD, CLICK_TABLE, END_TURN, CLICK_MINION, CLICK_HERO} from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes'
 
-const initialState = {}
+const initialState = {playerStates: []}
 
 export function game(state = initialState, {type, payload}) {
-  return initialState
-  // switch (type) {
-  //   case START_GAME:
-  //     return state
-  // }
+  switch (type) {
+    case types.START_GAME_SUCCESS:
+      return payload.gameState
+    case types.END_TURN_SUCCESS:
+      return payload.gameState
+    default:
+      return state
+  }
 }
